@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app ="appFilme">
+<head>
+<meta charset="ISO-8859-1">
+<title>API Filme</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="./js/appFilme.js"></script>
+	<script src="./js/controller/filme-controller.js"></script>
+</head>
+<body>
+	<div  ng-controller="filmeController">
+		<h1>Bem vindo a API de Filmes</h1>
+		<a>
+			<label>Nome</label><input type="text" ng-model = "createFilme.nome"/>
+			<label>produtora</label><input type="text" ng-model = "createFilme.produtora"/>
+			<label>duracao</label><input type="text" ng-model = "createFilme.duracao"/>
+			<label>ano</label><input type="text" ng-model = "createFilme.ano"/>
+			<input type="button" value="Salvar" ng-click= "salvarFilme()">
+			<input type="button" value="Cancelar" ng-click= "limparCamposFilme()">
+		</a>
+		<br>
+		<br>
+		<br>
+		<div ng-repeat = "filme in filmes">
+			{{filme.nome + ' | '+ filme.produtora + ' | '+filme.duracao + ' | '+filme.ano}}
+			<input type="button" value="Excluir" ng-click= "excluirFilme(filme)">
+			<input type="button" value="Alterar" ng-click= "alterarFilme(filme)">
+		</div>
+	
+	</div>
+
+</body>
+</html>
